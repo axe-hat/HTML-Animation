@@ -6,19 +6,20 @@
 
 body {
     background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .netflix {
-    width: 150px;
-    height: 250px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 9.375rem;
+    height: 15.625rem;
+    position: relative;
 }
 
 .netflix span {
-    width: 50px;
+    width: 3.125rem;
     height: 0;
     background: red;
     position: absolute;
@@ -36,7 +37,7 @@ body {
     left: 0;
     transform: skewX(22deg);
     transform-origin: top left;
-    box-shadow: 0 0 50px black;
+    box-shadow: 0 0 3.125rem black;
     z-index: 2;
     animation: anim 0.5s linear forwards;
     animation-delay: 0.49s;
@@ -52,17 +53,40 @@ body {
 .netflix::after {
     content: '';
     width: 120%;
-    height: 20px;
+    height: 1.25rem;
     border-radius: 50%;
     background: black;
     position: absolute;
     left: -10%;
-    bottom: -10px;
+    bottom: -0.625rem;
     z-index: 5;
 }
 
 @keyframes anim {
     100% {
         height: 100%;
+    }
+}
+
+/* Responsive: scale down on small screens */
+@media (max-width: 480px) {
+    .netflix {
+        width: 6rem;
+        height: 10rem;
+    }
+
+    .netflix span {
+        width: 2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .netflix {
+        width: 4.5rem;
+        height: 7.5rem;
+    }
+
+    .netflix span {
+        width: 1.5rem;
     }
 }

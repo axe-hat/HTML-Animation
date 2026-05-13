@@ -5,9 +5,9 @@
     --secondary-color: blue;
     --accent-color: white;
     --bg-color: black;
-    --circle-size: 200px;
-    --ball-size: 40px;
-    --loader-size: 200px;
+    --circle-size: 12.5rem;
+    --ball-size: 2.5rem;
+    --loader-size: 12.5rem;
 }
 
 * {
@@ -27,13 +27,13 @@ body {
 
 .container {
     position: relative;
-    transform: translate(-100px);
+    transform: translate(-6.25rem);
 }
 
 .container::before {
     content: '';
     position: absolute;
-    top: 200px;
+    top: 12.5rem;
     width: var(--circle-size);
     height: var(--circle-size);
     background: var(--accent-color);
@@ -43,13 +43,13 @@ body {
 
 @keyframes animateCircle {
     0% {
-        transform: translateX(150px);
+        transform: translateX(9.375rem);
     }
     50% {
-        transform: translateX(-150px);
+        transform: translateX(-9.375rem);
     }
     100% {
-        transform: translateX(150px);
+        transform: translateX(9.375rem);
     }
 }
 
@@ -58,9 +58,9 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 400px;
-    width: 800px;
-    height: 800px;
+    top: 25rem;
+    width: 50rem;
+    height: 50rem;
     background: var(--primary-color);
     border-radius: 50%;
 }
@@ -99,7 +99,7 @@ body {
 .container .loader .ball {
     position: absolute;
     top: 50%;
-    left: -15px;
+    left: -0.9375rem;
     width: var(--ball-size);
     height: var(--ball-size);
     background: var(--accent-color);
@@ -110,12 +110,57 @@ body {
 
 @keyframes animateBall {
     0% {
-        transform: translateY(-100%) translateX(-30px);
+        transform: translateY(-100%) translateX(-1.875rem);
     }
     50% {
-        transform: translateY(-100%) translateX(220px);
+        transform: translateY(-100%) translateX(13.75rem);
     }
     100% {
-        transform: translateY(-100%) translateX(-30px);
+        transform: translateY(-100%) translateX(-1.875rem);
+    }
+}
+
+/* Responsive: scale down on small screens */
+@media (max-width: 768px) {
+    :root {
+        --circle-size: 8rem;
+        --ball-size: 1.75rem;
+        --loader-size: 8rem;
+    }
+
+    .container {
+        transform: translate(-4rem);
+    }
+
+    .container::before {
+        top: 8rem;
+    }
+
+    .container::after {
+        top: 16rem;
+        width: 30rem;
+        height: 30rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --circle-size: 5rem;
+        --ball-size: 1.25rem;
+        --loader-size: 5rem;
+    }
+
+    .container {
+        transform: translate(-2.5rem);
+    }
+
+    .container::before {
+        top: 5rem;
+    }
+
+    .container::after {
+        top: 10rem;
+        width: 18rem;
+        height: 18rem;
     }
 }
