@@ -164,3 +164,20 @@ body {
         height: 18rem;
     }
 }
+
+/* Accessibility: respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .container::before,
+    .container .loader,
+    .container .loader .ball {
+        animation: none;
+    }
+
+    .container .loader {
+        transform: rotate(0deg);
+    }
+
+    .container .loader .ball {
+        transform: translateY(-100%) translateX(6rem);
+    }
+}
